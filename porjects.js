@@ -1,7 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
+const db = require('./db_config').db
 
 const url =
-  "mongodb+srv://liangtangspaceUser:Mx2XVPiJSYfKcUUE@liangtangspace.t5eailr.mongodb.net/personalFiles?retryWrites=true&w=majority";
+  `mongodb+srv://${db.DB_USER}:${db.DB_PASSWORD}@liangtangspace.t5eailr.mongodb.net/${db.DB_NAME}?retryWrites=true&w=majority`;
 
 const createProject = async (req, res, next) => {
   const newProject = {
