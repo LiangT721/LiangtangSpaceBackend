@@ -1,10 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const projects = require('./projects');
+const path = require('path');
 
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use('/api/uploads',express.static(path.join('uploads')));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
